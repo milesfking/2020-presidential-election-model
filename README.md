@@ -1,5 +1,5 @@
 # 2020 Presidential Election Modeling Project (Completed 11/02/20)
-#### Our team trained a machine learning model in Python to predict the outcome of the United States 2020 Presidential Election for POLISCI 138FS at Duke University. The model predicted the democratic vote share in all 50 states and the District of Columbia, and these vote shares were thresholded to predict the winner of each state. Visualized results can be found [here](https://public.tableau.com/views/2020ElectionModelingProjectAccuracyVersusFiveThirtyEight/OverallPictureDashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link).
+Our team trained a machine learning model in Python to predict the outcome of the United States 2020 Presidential Election for POLISCI 138FS at Duke University. The model predicted the democratic vote share in all 50 states and the District of Columbia, and these vote shares were thresholded to predict the winner of each state. Model performance and visualizations can be accessed via [Tableau](https://public.tableau.com/views/2020ElectionModelingProjectAccuracyVersusFiveThirtyEight/OverallPictureDashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link).
 
 ## Data Dictionary
 
