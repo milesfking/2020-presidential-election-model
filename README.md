@@ -1,25 +1,5 @@
 # 2020 Presidential Election Modeling Project (Completed 11/02/20)
-### Our team trained a machine learning model in Python to predict the outcome of the United States 2020 Presidential Election for POLISCI 138FS at Duke University. The model predicted the democratic vote share in all 50 states and the District of Columbia, and these vote shares were thresholded to predict the winner of each state.
-
-## Visualized Results
-
-<div class='tableauPlaceholder' id='viz1655485862869' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2020ElectionModelingProjectAccuracyVersusFiveThirtyEight&#47;OverallPictureDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='2020ElectionModelingProjectAccuracyVersusFiveThirtyEight&#47;OverallPictureDashboard' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2020ElectionModelingProjectAccuracyVersusFiveThirtyEight&#47;OverallPictureDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1655485862869');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='850px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='850px';} else { vizElement.style.width='100%';vizElement.style.height='1300px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-
-## Final Regression
-
-y- Democratic Vote Share for a given state
-
-ŷ = 0.251150 * incumbency - 1.110680 * consec_terms + 1.614704 * home_state + 0.036132 * black + 0.035016 * hispanic - 0.136206 * cuban + 0.025504 * nonwhite - 0.111260 * pca1 - 0.062855 * evangelical + 0.014444 * educated - 0.110635 * pca2 + 0.671394 * polling_variable – 0.156228 * third_party + 0.329908 * past_elections + 17.4902
-
-PCA1: Used principal components analysis to incorporate three variables
-1. young_age
-2. middle_age
-3. old_age
-
-PCA2: Principal Components Analysis Incorporates three interaction terms (between incumbency and economic variables)
-1. incumbent_party * gdp
-2. incumbent_party * unemployment
-3. incumbent_party * income
+#### Our team trained a machine learning model in Python to predict the outcome of the United States 2020 Presidential Election for POLISCI 138FS at Duke University. The model predicted the democratic vote share in all 50 states and the District of Columbia, and these vote shares were thresholded to predict the winner of each state. Visualized results can be found [here](https://public.tableau.com/views/2020ElectionModelingProjectAccuracyVersusFiveThirtyEight/OverallPictureDashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link).
 
 ## Data Dictionary
 
@@ -54,3 +34,21 @@ PCA2: Principal Components Analysis Incorporates three interaction terms (betwee
 | Polling Variable: Expected Dem. Vote Share | polling_variable | x26 | Numeric | 0 to 100 | Used to aggregate all applicable polling data into one variable. If suff_state_polling is 1, use solely state_polling. If suff_state_polling is 0 (meaning there isn't adequate polling), use the national election vote share plus the state's average differential in the past two elections: national_polling + past_elections | Based on other variable data (see description): (state_polling * suff_state_polling) + ( (1 - suff_state_polling) * (national_polling + past_elections))|
 | Third Party Expected Vote Share | third_party | x27 | Numeric | 0 to 100 | Used to aggregate all third party polling data. If viable_third_cand = 1, and suff_third_party = 1, solely use third_party_state_polling. If viable_third_cand = 1, and suff_third_party = 0, use variable third_party_national_polling as a substitute. If viable_third_cand = 0, meaning that there is no viable third party candidate, this variable = 0. | Based on other variable data (see description): viable_third_cand * ((third_party_state_polling * suff_third_polling) + ((1 - suff_third_polling) * third_party_national_polling)|
 | Average Vote Differential for Past Elections | past_elections | x28 | Numeric | -100 to 100 | The average difference in Democratic share vote share between the given state and the nation as a whole over the last two elections. This variable gives us an idea of the general "lean" of the state compared to the nation in recent history and is used to help calculate polling_variable in the absense of reliable polling. | https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX |
+
+## Finalized Regression Model
+
+y- Democratic Vote Share for a given state
+
+ŷ = 0.251150 * incumbency - 1.110680 * consec_terms + 1.614704 * home_state + 0.036132 * black + 0.035016 * hispanic - 0.136206 * cuban + 0.025504 * nonwhite - 0.111260 * pca1 - 0.062855 * evangelical + 0.014444 * educated - 0.110635 * pca2 + 0.671394 * polling_variable – 0.156228 * third_party + 0.329908 * past_elections + 17.4902
+
+Principal components analysis was used for dimensionality reduction in the following two cases:
+
+PCA1 incorporates the three age buckets of a state:
+1. young_age
+2. middle_age
+3. old_age
+
+PCA2 incorporates the three economic indicators:
+1. incumbent_party * gdp
+2. incumbent_party * unemployment
+3. incumbent_party * income
