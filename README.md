@@ -1,13 +1,17 @@
-# 2020-Presidential-Election-Model
-Machine Learning Presidential Election Model by Individual State Vote Share (Completed 11/02)
+# 2020 Presidential Election Modeling Project (Completed 11/02/20)
+### Our team trained a machine learning model in Python to predict the outcome of the United States 2020 Presidential Election for POLISCI 138FS at Duke University. The model predicted the democratic vote share in all 50 states and the District of Columbia, and these vote shares were thresholded to predict the winner of each state.
 
-Final Regression:
+## Visualized Results
+
+<div class='tableauPlaceholder' id='viz1655485862869' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2020ElectionModelingProjectAccuracyVersusFiveThirtyEight&#47;OverallPictureDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='2020ElectionModelingProjectAccuracyVersusFiveThirtyEight&#47;OverallPictureDashboard' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2020ElectionModelingProjectAccuracyVersusFiveThirtyEight&#47;OverallPictureDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1655485862869');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='850px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='850px';} else { vizElement.style.width='100%';vizElement.style.height='1300px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+## Final Regression
 
 y- Democratic Vote Share for a given state
 
 ŷ = 0.251150 * incumbency - 1.110680 * consec_terms + 1.614704 * home_state + 0.036132 * black + 0.035016 * hispanic - 0.136206 * cuban + 0.025504 * nonwhite - 0.111260 * pca1 - 0.062855 * evangelical + 0.014444 * educated - 0.110635 * pca2 + 0.671394 * polling_variable – 0.156228 * third_party + 0.329908 * past_elections + 17.4902
 
-PCA1: Principal Components Analysis Incorporates three variables
+PCA1: Used principal components analysis to incorporate three variables
 1. young_age
 2. middle_age
 3. old_age
