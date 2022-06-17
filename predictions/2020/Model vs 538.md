@@ -1,4 +1,8 @@
-## Our Predictions
+# Model Predictions Versus FiveThirty Eight
+
+Here are our model's final state by state predictions, as well as predictions made by the [FiveThirtyEight 2020 Election Forecast](https://projects.fivethirtyeight.com/2020-election-forecast/). Prediction accuracy is compared using mean squared error (MSE), mean absolute error (MAE), and root mean squared error (RMSE). Our model performed better in 33 of 51 races and was more accurate in both swing states (listed below) and overall.
+
+## Our Model Predictions
 
 Democratic Vote Share
 | State | Our Model | 538 Model | Actual|
